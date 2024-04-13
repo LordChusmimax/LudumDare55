@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://csokx1mn740u8"
+path="res://.godot/imported/Slime.aseprite-ebe5edeedcd6112ad4fa3bac11033526.res"
+
+[deps]
+
+source_file="res://Entities/Slime/Slime.aseprite"
+dest_files=["res://.godot/imported/Slime.aseprite-ebe5edeedcd6112ad4fa3bac11033526.res"]
+
+[params]
+

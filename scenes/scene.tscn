@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3 uid="uid://gvu1dk6s6yta"]
+
+[ext_resource type="Script" path="res://scenes/Allies.gd" id="1_3yjtw"]
+[ext_resource type="Texture2D" uid="uid://qdjwwhy8yq0j" path="res://scenes/Player.png" id="1_faokg"]
+[ext_resource type="PackedScene" uid="uid://cmv38p5tq8288" path="res://scenes/slime.tscn" id="2_k1uf6"]
+[ext_resource type="PackedScene" uid="uid://drmklddi2vivn" path="res://scenes/Human.tscn" id="4_lhbkk"]
+[ext_resource type="PackedScene" uid="uid://dxyq6nh1xx6hb" path="res://scenes/CombatMenu.tscn" id="4_wffp2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6ab5"]
+atlas = ExtResource("1_faokg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcy50"]
+atlas = ExtResource("1_faokg")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgnvo"]
+atlas = ExtResource("1_faokg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lswat"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6ab5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6ab5")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcy50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcy50")
+}],
+"loop": true,
+"name": &"Kick",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgnvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgnvo")
+}],
+"loop": true,
+"name": &"Summon",
+"speed": 10.0
+}]
+
+[node name="Scene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Combatants" type="Node2D" parent="."]
+
+[node name="Allies" type="Node2D" parent="Combatants"]
+script = ExtResource("1_3yjtw")
+
+[node name="Player" type="Node2D" parent="Combatants/Allies"]
+position = Vector2(-119, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Combatants/Allies/Player"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_lswat")
+animation = &"Idle"
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://Entities/Player/Player.aseprite"
+}
+
+[node name="Slime" parent="Combatants/Allies" instance=ExtResource("2_k1uf6")]
+position = Vector2(-91, 6)
+
+[node name="Slime2" parent="Combatants/Allies" instance=ExtResource("2_k1uf6")]
+position = Vector2(-65, 6)
+
+[node name="Slime3" parent="Combatants/Allies" instance=ExtResource("2_k1uf6")]
+position = Vector2(-39, 6)
+
+[node name="Enemies" type="Node2D" parent="Combatants"]
+
+[node name="Human" parent="Combatants/Enemies" instance=ExtResource("4_lhbkk")]
+position = Vector2(95, -10)
+
+[node name="Control" parent="." instance=ExtResource("4_wffp2")]
+offset_left = -102.0
+offset_top = 40.0
+offset_right = -102.0
+offset_bottom = 40.0

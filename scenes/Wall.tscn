@@ -1,0 +1,119 @@
+[gd_scene load_steps=13 format=3 uid="uid://c4bujl0qsadjg"]
+
+[ext_resource type="Texture2D" uid="uid://cxonlwc4ma5nl" path="res://scenes/wall.png" id="1_0c782"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m06u"]
+atlas = ExtResource("1_0c782")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evta6"]
+atlas = ExtResource("1_0c782")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tislc"]
+atlas = ExtResource("1_0c782")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gy5g"]
+atlas = ExtResource("1_0c782")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yhv3"]
+atlas = ExtResource("1_0c782")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38cbh"]
+atlas = ExtResource("1_0c782")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2trw"]
+atlas = ExtResource("1_0c782")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k6v0"]
+atlas = ExtResource("1_0c782")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfffv"]
+atlas = ExtResource("1_0c782")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpxvj"]
+atlas = ExtResource("1_0c782")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bbo5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m06u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evta6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tislc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gy5g")
+}],
+"loop": true,
+"name": &"Fire",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 40.0,
+"texture": SubResource("AtlasTexture_8yhv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38cbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2trw")
+}],
+"loop": true,
+"name": &"Shock",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5k6v0")
+}],
+"loop": true,
+"name": &"ice",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfffv")
+}],
+"loop": true,
+"name": &"mud",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpxvj")
+}],
+"loop": true,
+"name": &"snow",
+"speed": 10.0
+}]
+
+[node name="Slime" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1bbo5")
+animation = &"snow"
+autoplay = "snow"
+frame_progress = 0.733036
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://Entities/Wall/wall.aseprite"
+}

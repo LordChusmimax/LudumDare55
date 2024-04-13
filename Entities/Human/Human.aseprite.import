@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dapcpmgbr17cb"
+path="res://.godot/imported/Human.aseprite-e9e0cb7605ffb9009cf14b0ee2ff452b.res"
+
+[deps]
+
+source_file="res://Entities/Human/Human.aseprite"
+dest_files=["res://.godot/imported/Human.aseprite-e9e0cb7605ffb9009cf14b0ee2ff452b.res"]
+
+[params]
+

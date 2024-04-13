@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://drmklddi2vivn"]
+
+[ext_resource type="Script" path="res://Enemy.gd" id="1_4fa13"]
+[ext_resource type="Texture2D" uid="uid://dhikkkwehcnwx" path="res://scenes/Human.png" id="2_abtgp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1uk34"]
+atlas = ExtResource("2_abtgp")
+region = Rect2(0, 0, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka4bb"]
+atlas = ExtResource("2_abtgp")
+region = Rect2(0, 64, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjp07"]
+atlas = ExtResource("2_abtgp")
+region = Rect2(63, 64, 63, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry3vu"]
+atlas = ExtResource("2_abtgp")
+region = Rect2(63, 0, 63, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xp51d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1uk34")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka4bb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjp07")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry3vu")
+}],
+"loop": true,
+"name": &"Look",
+"speed": 10.0
+}]
+
+[node name="Human" type="Node2D"]
+script = ExtResource("1_4fa13")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_xp51d")
+animation = &"Idle"
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://Entities/Human/Human.aseprite"
+}

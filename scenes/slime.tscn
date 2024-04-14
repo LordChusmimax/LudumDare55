@@ -172,7 +172,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_mgvy5")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.209904
+frame_progress = 0.651656
 script = ExtResource("3_1y7sd")
 metadata/_aseprite_wizard_config_ = {
 "layer": "",

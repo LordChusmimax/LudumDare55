@@ -14,22 +14,22 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_pressed_0():
-	CombatMenu.selected_slime=Elements.Fire
+	CombatMenu.selected_element=Elements.Fire
 	element_selected()
 	pass
 
 func _on_pressed_1():
-	CombatMenu.selected_slime=Elements.Ice
+	CombatMenu.selected_element=Elements.Ice
 	element_selected()
 	pass
 
 func _on_pressed_2():
-	CombatMenu.selected_slime=Elements.Thunder
+	CombatMenu.selected_element=Elements.Thunder
 	element_selected()
 	pass
 	
 func _on_pressed_3():
-	CombatMenu.selected_slime=Elements.Earth
+	CombatMenu.selected_element=Elements.Earth
 	element_selected()
 	pass
 

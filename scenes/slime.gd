@@ -36,3 +36,10 @@ func round_passive():
 			return
 		_:
 			return
+			
+func kick_effect():
+	match element:
+		Elements.Base:
+			return
+		_:
+			return

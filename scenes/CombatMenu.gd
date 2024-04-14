@@ -26,6 +26,7 @@ enum infuse_phases{
 func _ready():
 	summon.connect("button_up",_summon)
 	infuse.connect("button_up",_infuse)
+	kick.connect("button_up",_kick)
 	back.connect("button_up",_back)
 	back.visible = false
 	pass # Replace with function body.
@@ -42,6 +43,8 @@ func _summon():
 	allies.summon()
 	
 func _infuse():
+	SlimeSelect.infuse_select=true
+	
 	slime_select.change_visibility(true)
 	element_select.change_visibility(true)
 	
@@ -50,6 +53,16 @@ func _infuse():
 	
 	disable_buttons()
 	foward_infuse()
+	
+func _kick():
+	SlimeSelect.infuse_select=false
+	
+	slime_select.change_visibility(true)
+	
+	slime_select.disable_buttons(false)
+	
+	disable_buttons()
+	back.visible = true
 	
 func _set_element_menu():
 	slime_select.disable_buttons(true)
@@ -66,9 +79,19 @@ func foward_infuse():
 			_set_element_menu()
 		
 		infuse_phases.Selecting_element:
-			print("abort select elements")
+			allies.infuse(selected_slime,selected_element)
+			infuse_phase = infuse_phases.None
+			slime_select.change_visibility(false)
+			element_select.change_visibility(false)
 			
 func backward_infuse():
+	if !SlimeSelect.infuse_select:
+		back.visible = false
+		enable_buttons()
+		slime_select.change_visibility(false)
+		element_select.change_visibility(false)
+		return
+	
 	match infuse_phase:
 		infuse_phases.Selecting_slime:
 			infuse_phase = infuse_phases.None
@@ -85,6 +108,11 @@ func backward_infuse():
 		
 		infuse_phases.None:
 			pass
+	
+func kicked():
+	infuse_phase = infuse_phases.None
+	slime_select.change_visibility(false)
+	element_select.change_visibility(false)
 	
 func back_infuse():
 	pass

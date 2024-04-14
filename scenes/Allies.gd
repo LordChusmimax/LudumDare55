@@ -24,6 +24,18 @@ func summon():
 			combat_flow.set_phase(Phase.Enemy)
 			return
 
+func infuse(slime,element):
+	slimes[slime].infuse_element(element)
+	combat_flow.set_phase(Phase.Enemy)
+	return
+	
+func kick(slime_num):
+	var slime :Slime = slimes[slime_num]
+	slime.kick_effect()
+	slime.set_active(Status.Inactive)
+	combat_flow.set_phase(Phase.Enemy)
+	return
+
 func only_slimes():
 	for slime:Slime in slimes:
 		if slime.status == Status.Inactive:

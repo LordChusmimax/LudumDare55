@@ -1,8 +1,11 @@
 extends Control
 
+class_name SlimeSelect
+
 @onready var allies = $"../Combatants/Allies"
 @onready var buttons = [$HBoxContainer/Slime1, $HBoxContainer/Slime2, $HBoxContainer/Slime3]
 @onready var combat_menu = $"../Control"
+static var infuse_select
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,7 +31,11 @@ func _on_pressed_2():
 	pass
 
 func slime_selected():
-	combat_menu.foward_infuse()
+	if infuse_select:
+		combat_menu.foward_infuse()
+	else:
+		allies.kick(CombatMenu.selected_slime)
+		combat_menu.kicked()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

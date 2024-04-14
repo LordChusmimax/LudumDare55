@@ -6,8 +6,11 @@ extends Node2D
 @onready var frozen = $Buffs/HFlowContainer/Frozen
 @onready var sprite = $AnimatedSprite2D
 
+var round:int
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	round = 0
 	pass # Replace with function body.
 
 func turn():
@@ -15,11 +18,13 @@ func turn():
 		buff.passive()
 	
 	if buffs.stunned.stacks >= 1:
-		buffs.stunned.upgrade(buffs.stunned.stacks)
+		buffs.stunned.upgrade(-buffs.stunned.stacks)
 		Notifications.current.change_notification("Enemy Stunned")
 		await get_tree().create_timer(2).timeout
 	else:
 		var rand_number = randi_range(0,7)
+		if round == 0 and rand_number == 4:
+			rand_number = 3
 		match rand_number:
 			0:
 				Notifications.current.change_notification("Human defended herself")
@@ -78,6 +83,7 @@ func turn():
 				SoundManager.current.hit.play()
 				await get_tree().create_timer(1).timeout
 				Notifications.current.change_notification("Human hit everyone")
+	round += 1
 	return true
 
 func damage(number,blockable):

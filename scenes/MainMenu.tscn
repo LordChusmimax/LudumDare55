@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://xy4tt2dsyvf1"]
+[gd_scene load_steps=10 format=3 uid="uid://xy4tt2dsyvf1"]
 
 [ext_resource type="Script" path="res://scenes/MainMenu.gd" id="1_5g4gc"]
 [ext_resource type="FontFile" uid="uid://dnxq4syi56sl3" path="res://font/upheavtt.ttf" id="1_xakul"]
+[ext_resource type="Script" path="res://scenes/Toturial.gd" id="3_lc5am"]
 
 [sub_resource type="Theme" id="Theme_avulx"]
 default_font = ExtResource("1_xakul")
@@ -71,6 +72,7 @@ theme = SubResource("Theme_ev3qr")
 text = "Tutorial"
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 modulate = Color(0.180392, 0.180392, 0.180392, 1)
 layout_mode = 2
 anchor_right = 1.088
@@ -80,6 +82,7 @@ offset_bottom = -43.3666
 texture = SubResource("CanvasTexture_j2scv")
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 2
 anchor_right = 0.344
 anchor_bottom = 0.282
@@ -105,6 +108,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Label2" type="Label" parent="."]
+visible = false
 layout_mode = 2
 anchor_right = 0.344
 anchor_bottom = 0.282
@@ -130,6 +134,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Label3" type="Label" parent="."]
+visible = false
 layout_mode = 2
 anchor_right = 0.344
 anchor_bottom = 0.282
@@ -157,6 +162,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Button" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 396.0
 offset_top = 554.0
@@ -164,3 +170,4 @@ offset_right = 1094.0
 offset_bottom = 608.0
 theme = SubResource("Theme_w7ir6")
 text = "I got IT, Time to be a HEro"
+script = ExtResource("3_lc5am")

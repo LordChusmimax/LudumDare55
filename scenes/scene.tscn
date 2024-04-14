@@ -347,21 +347,25 @@ scale = Vector2(0.412631, 0.412631)
 
 [node name="Fire" type="Button" parent="Battle/ElementSelect/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "Stack damage every turn"
 theme = SubResource("Theme_ymepg")
 text = "Fire"
 
 [node name="Ice" type="Button" parent="Battle/ElementSelect/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "Make your enemies brittle"
 theme = SubResource("Theme_ymepg")
 text = "Ice"
 
 [node name="Thunder" type="Button" parent="Battle/ElementSelect/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "Stun your enemy"
 theme = SubResource("Theme_ymepg")
 text = "Thunder"
 
 [node name="Earth" type="Button" parent="Battle/ElementSelect/HBoxContainer"]
 layout_mode = 2
+tooltip_text = "Get armor every turn"
 theme = SubResource("Theme_ymepg")
 text = "Earth"
 

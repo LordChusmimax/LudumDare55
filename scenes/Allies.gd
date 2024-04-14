@@ -8,7 +8,7 @@ class_name Allies
 @onready var battle = $"../.."
 @onready var combat_flow = $"../../CombatFlow"
 
-
+var summoning :bool = false
 static var current: Allies
 
 func _ready():
@@ -21,6 +21,9 @@ func _process(delta):
 	pass
 
 func summon():
+	if summoning == true:
+		return
+	summoning = true
 	SoundManager.current.summon.play()
 	for slime:Slime in slimes:
 		if slime.status == Status.Inactive:
@@ -30,6 +33,7 @@ func summon():
 			await get_tree().create_timer(1).timeout
 			player.sprite.animation = "Idle"
 			combat_flow.set_phase(Phase.Enemy)
+			summoning = false
 			return
 
 func infuse(slime,element):
@@ -64,8 +68,6 @@ func damage_all(number, blockable):
 	for slime:Slime in slimes:
 		if slime.status != Status.Inactive:
 			slime.damage(number,blockable)
-
-
 
 func slimes_turn():
 	for slime:Slime in slimes:

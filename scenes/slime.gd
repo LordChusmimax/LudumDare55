@@ -45,6 +45,7 @@ func set_active(active: int):
 	if active == Status.Inactive:
 		visible = false
 		infuse_element(Elements.Base)
+		health.full_heal()
 		clear_buffs()
 	else:
 		visible = true
@@ -68,7 +69,7 @@ func round_passive():
 		Elements.Ice:
 			Enemies.current.apply_buff(Buff.Type.Frozen,2)
 		Elements.Thunder:
-			Enemies.current.apply_buff(Buff.Type.Shocked,1)
+			Enemies.current.apply_buff(Buff.Type.Shocked,5)
 		_:
 			return
 			
@@ -87,6 +88,6 @@ func kick_effect():
 			Enemies.current.apply_buff(Buff.Type.Frozen,2)
 		Elements.Thunder:
 			Enemies.current.damage_all(7,true)
-			Enemies.current.apply_buff(Buff.Type.Shocked,5)
+			Enemies.current.apply_buff(Buff.Type.Shocked,10)
 		_:
 			return

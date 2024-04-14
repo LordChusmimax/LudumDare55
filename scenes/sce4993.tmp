@@ -420,7 +420,6 @@ metadata/_aseprite_wizard_config_ = {
 }
 
 [node name="Win" type="AnimatedSprite2D" parent="."]
-visible = false
 z_index = 2
 texture_filter = 1
 scale = Vector2(0.671181, 0.671181)
@@ -463,7 +462,6 @@ theme = SubResource("Theme_35y0h")
 text = "Main Menu"
 
 [node name="Lose" type="AnimatedSprite2D" parent="."]
-visible = false
 z_index = 2
 texture_filter = 1
 scale = Vector2(0.671181, 0.671181)

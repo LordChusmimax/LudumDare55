@@ -23,6 +23,7 @@ func turn():
 		match rand_number:
 			0:
 				Notifications.current.change_notification("Human defended herself")
+				SoundManager.current.buff.play()
 				armor.upgrade(3)
 				await get_tree().create_timer(1).timeout
 				
@@ -30,12 +31,14 @@ func turn():
 			1:
 				Notifications.current.change_notification("Human cleansed herself from debuffs")
 				buffs.cleanse()
+				SoundManager.current.buff.play()
 				await get_tree().create_timer(1).timeout
 				Notifications.current.change_notification("Human cleansed herself from debuffs")
 			
 			2:
 				Notifications.current.change_notification("Human hit everyone")
 				Allies.current.damage_all(3, true)
+				SoundManager.current.hit.play()
 				await get_tree().create_timer(1).timeout
 				Notifications.current.change_notification("Human hit everyone")
 			
@@ -43,12 +46,14 @@ func turn():
 			3:
 				Notifications.current.change_notification("Human hit everyone hard")
 				Allies.current.damage_all(6, true)
+				SoundManager.current.hit.play()
 				await get_tree().create_timer(1).timeout
 				Notifications.current.change_notification("Human hit everyone hard")
 				
 			4:
 				Notifications.current.change_notification("Human hit everyone with poison")
 				Allies.current.damage_all(3, true)
+				SoundManager.current.hit.play()
 				Allies.current.apply_buff(Buff.Type.Poisoned, 3)
 				await get_tree().create_timer(1).timeout
 				Notifications.current.change_notification("Human hit everyone with poison")
@@ -56,18 +61,21 @@ func turn():
 			5:
 				Notifications.current.change_notification("Human hit everyone")
 				Allies.current.damage_all(2, true)
+				SoundManager.current.hit.play()
 				await get_tree().create_timer(1).timeout
 				Notifications.current.change_notification("Human hit everyone")
 				
 			6:
 				Notifications.current.change_notification("Human hit everyone")
 				Allies.current.damage_all(2, true)
+				SoundManager.current.hit.play()
 				await get_tree().create_timer(1).timeout
 				Notifications.current.change_notification("Human hit everyone")
 				
 			7:
 				Notifications.current.change_notification("Human hit everyone")
 				Allies.current.damage_all(2, true)
+				SoundManager.current.hit.play()
 				await get_tree().create_timer(1).timeout
 				Notifications.current.change_notification("Human hit everyone")
 	return true
@@ -85,4 +93,4 @@ func damage(number,blockable):
 		health.damage(number)
 		
 func dead():
-	print("You win")
+	Win.current.visible = true

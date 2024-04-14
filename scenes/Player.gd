@@ -11,7 +11,8 @@ func _ready():
 	pass # Replace with function body.
 
 func dead():
-	print("You Lose")
+	Lose.current.visible = true
+	Win.current.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

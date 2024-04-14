@@ -21,6 +21,7 @@ func _process(delta):
 	pass
 
 func summon():
+	SoundManager.current.summon.play()
 	for slime:Slime in slimes:
 		if slime.status == Status.Inactive:
 			slime.set_active(Status.OK)
@@ -32,6 +33,7 @@ func summon():
 			return
 
 func infuse(slime,element):
+	SoundManager.current.infuse.play()
 	slimes[slime].infuse_element(element)
 	player.sprite.animation = "Summon"
 	await get_tree().create_timer(1).timeout
@@ -40,6 +42,7 @@ func infuse(slime,element):
 	return
 	
 func kick(slime_num):
+	SoundManager.current.kick.play()
 	var slime :Slime = slimes[slime_num]
 	slime.kick_effect()
 	slime.set_active(Status.Inactive)

@@ -1,0 +1,166 @@
+[gd_scene load_steps=9 format=3 uid="uid://xy4tt2dsyvf1"]
+
+[ext_resource type="Script" path="res://scenes/MainMenu.gd" id="1_5g4gc"]
+[ext_resource type="FontFile" uid="uid://dnxq4syi56sl3" path="res://font/upheavtt.ttf" id="1_xakul"]
+
+[sub_resource type="Theme" id="Theme_avulx"]
+default_font = ExtResource("1_xakul")
+default_font_size = 70
+
+[sub_resource type="Theme" id="Theme_ev3qr"]
+default_font = ExtResource("1_xakul")
+default_font_size = 40
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_j2scv"]
+
+[sub_resource type="Theme" id="Theme_pdf54"]
+default_font = ExtResource("1_xakul")
+default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_uhwpw"]
+default_font = ExtResource("1_xakul")
+default_font_size = 30
+
+[sub_resource type="Theme" id="Theme_w7ir6"]
+default_font = ExtResource("1_xakul")
+default_font_size = 50
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_5g4gc")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.25
+offset_top = 71.0
+offset_bottom = 71.0
+theme = SubResource("Theme_avulx")
+text = "SLIMEMANCER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 254.0
+offset_right = 735.0
+offset_bottom = 314.0
+theme = SubResource("Theme_ev3qr")
+text = "Start"
+
+[node name="Tutorial" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 346.0
+offset_right = 735.0
+offset_bottom = 406.0
+theme = SubResource("Theme_ev3qr")
+text = "Tutorial"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.180392, 0.180392, 0.180392, 1)
+layout_mode = 2
+anchor_right = 1.088
+anchor_bottom = 1.21
+offset_right = -0.0880127
+offset_bottom = -43.3666
+texture = SubResource("CanvasTexture_j2scv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+anchor_right = 0.344
+anchor_bottom = 0.282
+offset_right = -0.288025
+offset_bottom = -111.736
+theme = SubResource("Theme_pdf54")
+text = "Summoning"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.344
+anchor_bottom = 0.282
+offset_left = 39.0
+offset_top = 71.0
+offset_right = 979.776
+offset_bottom = 109.978
+theme = SubResource("Theme_uhwpw")
+text = "Summon Slimes to aid you in battle. Fighting is tiresome and boring, leave that to those under your command."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+anchor_right = 0.344
+anchor_bottom = 0.282
+offset_top = 170.0
+offset_right = -0.288025
+offset_bottom = 196.233
+theme = SubResource("Theme_pdf54")
+text = "Infusing"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Label2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.344
+anchor_bottom = 0.282
+offset_left = 39.0
+offset_top = 43.0
+offset_right = 979.776
+offset_bottom = 74.0708
+theme = SubResource("Theme_uhwpw")
+text = "Slimes made out of slime are lame, Get them buffed with different elements and enjoy the sweet passives these changes carry."
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 2
+anchor_right = 0.344
+anchor_bottom = 0.282
+offset_top = 346.0
+offset_right = -12.7599
+offset_bottom = 371.387
+theme = SubResource("Theme_pdf54")
+text = "Kicking"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Label3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.344
+anchor_bottom = 0.282
+offset_left = 39.0
+offset_top = 51.0
+offset_right = 979.776
+offset_bottom = 113.309
+theme = SubResource("Theme_uhwpw")
+text = "Is your partner going to die? Does your masterplan come with sacrifices? Do you just feel evil today?
+Kick your pet into the enemy!
+Guaranteed to get even messier if your slime is elemental"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 554.0
+offset_right = 1094.0
+offset_bottom = 608.0
+theme = SubResource("Theme_w7ir6")
+text = "I got IT, Time to be a HEro"

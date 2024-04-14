@@ -27,3 +27,6 @@ func apply_buff(type,number):
 	
 func damage_all(number, blockable):
 	human.damage(number,blockable)
+	
+func hide_health(value):
+	human.health.visible != value

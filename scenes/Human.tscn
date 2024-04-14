@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://drmklddi2vivn"]
+[gd_scene load_steps=15 format=3 uid="uid://drmklddi2vivn"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_4fa13"]
 [ext_resource type="Texture2D" uid="uid://dhikkkwehcnwx" path="res://scenes/Human.png" id="2_abtgp"]
 [ext_resource type="Script" path="res://scenes/HumanHealthBar.gd" id="3_2y1ya"]
 [ext_resource type="Script" path="res://scenes/Buffs.gd" id="4_ac8h2"]
+[ext_resource type="FontFile" uid="uid://dnxq4syi56sl3" path="res://font/upheavtt.ttf" id="4_ubsxh"]
 [ext_resource type="PackedScene" uid="uid://dcan0pt5csukm" path="res://UI/Buffs/buff.tscn" id="5_p3bya"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1uk34"]
@@ -61,6 +62,9 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
+[sub_resource type="Theme" id="Theme_pktq5"]
+default_font = ExtResource("4_ubsxh")
+
 [node name="Human" type="Node2D"]
 script = ExtResource("1_4fa13")
 
@@ -100,6 +104,7 @@ anchor_right = 1.0
 anchor_bottom = 0.946
 offset_right = 1.0
 offset_bottom = 0.457998
+theme = SubResource("Theme_pktq5")
 text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1

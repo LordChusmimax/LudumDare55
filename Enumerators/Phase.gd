@@ -3,5 +3,7 @@ class_name  Phase
 enum {
 	Player,
 	Enemy,
-	Slimes
+	Slimes,
+	Prefight,
+	Initial
 }

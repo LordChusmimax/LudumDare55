@@ -2,7 +2,7 @@ extends Health
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	max_health = 10
+	max_health = 15
 	super()
 	pass # Replace with function body.
 

@@ -62,6 +62,8 @@ func damage_all(number, blockable):
 		if slime.status != Status.Inactive:
 			slime.damage(number,blockable)
 
+
+
 func slimes_turn():
 	for slime:Slime in slimes:
 		for buff:Buff in slime.buffs.buffs:

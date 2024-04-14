@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://cmv38p5tq8288"]
+[gd_scene load_steps=30 format=3 uid="uid://cmv38p5tq8288"]
 
 [ext_resource type="Texture2D" uid="uid://ck78uslgw8mgr" path="res://scenes/Slime.png" id="1_cdiwh"]
 [ext_resource type="Script" path="res://scenes/slime.gd" id="2_gr562"]
 [ext_resource type="Script" path="res://scenes/SlimeSprite.gd" id="3_1y7sd"]
 [ext_resource type="Script" path="res://scenes/SlimeHealth.gd" id="4_fem8f"]
 [ext_resource type="Script" path="res://scenes/Buffs.gd" id="5_5hsqt"]
+[ext_resource type="FontFile" uid="uid://dnxq4syi56sl3" path="res://font/upheavtt.ttf" id="5_cvd62"]
 [ext_resource type="PackedScene" uid="uid://dcan0pt5csukm" path="res://UI/Buffs/buff.tscn" id="6_1u7nd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_adotc"]
@@ -176,6 +177,9 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
+[sub_resource type="Theme" id="Theme_qihhp"]
+default_font = ExtResource("5_cvd62")
+
 [node name="Slime" type="Node2D"]
 script = ExtResource("2_gr562")
 
@@ -215,6 +219,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.041
 offset_bottom = -0.107
+theme = SubResource("Theme_qihhp")
 horizontal_alignment = 1
 vertical_alignment = 1
 

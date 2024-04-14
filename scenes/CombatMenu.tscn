@@ -1,8 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxyq6nh1xx6hb"]
+[gd_scene load_steps=7 format=3 uid="uid://dxyq6nh1xx6hb"]
 
 [ext_resource type="Script" path="res://scenes/CombatMenu.gd" id="1_u5v4q"]
+[ext_resource type="FontFile" uid="uid://dnxq4syi56sl3" path="res://font/upheavtt.ttf" id="2_f32w6"]
 
 [sub_resource type="Theme" id="Theme_vymip"]
+default_font = ExtResource("2_f32w6")
+
+[sub_resource type="Theme" id="Theme_tlj31"]
+default_font = ExtResource("2_f32w6")
+
+[sub_resource type="Theme" id="Theme_ddru7"]
+default_font = ExtResource("2_f32w6")
+
+[sub_resource type="Theme" id="Theme_pkv0s"]
+default_font = ExtResource("2_f32w6")
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -25,12 +36,15 @@ text = "Summon"
 
 [node name="Infuse" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_tlj31")
 text = "Infuse"
 
 [node name="Kick" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_ddru7")
 text = "Kick"
 
 [node name="Pass" type="Button" parent="HBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_pkv0s")
 text = "Pass"

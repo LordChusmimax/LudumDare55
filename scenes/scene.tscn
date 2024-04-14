@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://gvu1dk6s6yta"]
+[gd_scene load_steps=37 format=3 uid="uid://gvu1dk6s6yta"]
 
 [ext_resource type="Script" path="res://scenes/Allies.gd" id="1_3yjtw"]
 [ext_resource type="PackedScene" uid="uid://cblnjxpvli54i" path="res://scenes/intro.tscn" id="1_avmxn"]
@@ -16,6 +16,11 @@
 [ext_resource type="Script" path="res://scenes/SlimeSelect.gd" id="7_6ti14"]
 [ext_resource type="Script" path="res://scenes/ElementSelect.gd" id="8_vw4kk"]
 [ext_resource type="Script" path="res://scenes/Notifications.gd" id="14_8bffp"]
+[ext_resource type="PackedScene" uid="uid://ds3xe1x2txpbj" path="res://scenes/goblin.tscn" id="17_knxeq"]
+[ext_resource type="Texture2D" uid="uid://dxqjnpavklr46" path="res://scenes/Run.png" id="18_0aw47"]
+[ext_resource type="FontFile" uid="uid://dnxq4syi56sl3" path="res://font/upheavtt.ttf" id="18_1syu0"]
+[ext_resource type="Texture2D" uid="uid://c44kakla34014" path="res://scenes/backgdround.png" id="19_qa2vi"]
+[ext_resource type="AudioStream" uid="uid://b2l7amrkopj8f" path="res://music/Slimy_Situation.mp3" id="21_ibvj7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6ab5"]
 atlas = ExtResource("1_faokg")
@@ -74,54 +79,62 @@ corner_radius_top_right = 7
 corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 
-[sub_resource type="FontFile" id="FontFile_oxjws"]
-cache/0/10/0/ascent = 0.0
-cache/0/10/0/descent = 0.0
-cache/0/10/0/underline_position = 0.0
-cache/0/10/0/underline_thickness = 0.0
-cache/0/10/0/scale = 1.0
-cache/0/10/0/kerning_overrides/10/0 = Vector2(0, 0)
-cache/0/10/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/10/0/kerning_overrides/11/0 = Vector2(0, 0)
-cache/0/10/0/kerning_overrides/12/0 = Vector2(0, 0)
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/10/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/11/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/12/0 = Vector2(0, 0)
-cache/0/11/0/ascent = 0.0
-cache/0/11/0/descent = 0.0
-cache/0/11/0/underline_position = 0.0
-cache/0/11/0/underline_thickness = 0.0
-cache/0/11/0/scale = 1.0
-cache/0/11/0/kerning_overrides/10/0 = Vector2(0, 0)
-cache/0/11/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/11/0/kerning_overrides/11/0 = Vector2(0, 0)
-cache/0/11/0/kerning_overrides/12/0 = Vector2(0, 0)
-cache/0/12/0/ascent = 0.0
-cache/0/12/0/descent = 0.0
-cache/0/12/0/underline_position = 0.0
-cache/0/12/0/underline_thickness = 0.0
-cache/0/12/0/scale = 1.0
-cache/0/12/0/kerning_overrides/10/0 = Vector2(0, 0)
-cache/0/12/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/12/0/kerning_overrides/11/0 = Vector2(0, 0)
-cache/0/12/0/kerning_overrides/12/0 = Vector2(0, 0)
+[sub_resource type="Theme" id="Theme_r70iv"]
+default_font = ExtResource("18_1syu0")
+
+[sub_resource type="Theme" id="Theme_7ywa5"]
+default_font = ExtResource("18_1syu0")
+
+[sub_resource type="Theme" id="Theme_rvyer"]
+default_font = ExtResource("18_1syu0")
+
+[sub_resource type="Theme" id="Theme_ymepg"]
+default_font = ExtResource("18_1syu0")
 
 [sub_resource type="Theme" id="Theme_cjjkk"]
-default_font = SubResource("FontFile_oxjws")
+default_font = ExtResource("18_1syu0")
 default_font_size = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5hj6"]
+atlas = ExtResource("18_0aw47")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wyhmp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5hj6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7foas"]
+atlas = ExtResource("19_qa2vi")
+region = Rect2(0, 0, 352, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc58f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7foas")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Scene" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
+[node name="Goblin" parent="." instance=ExtResource("17_knxeq")]
+position = Vector2(52, -5)
+
 [node name="Intro" parent="." instance=ExtResource("1_avmxn")]
+visible = false
 z_index = 1
 scale = Vector2(0.670616, 0.670616)
 script = ExtResource("2_fd8ce")
@@ -173,6 +186,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.041
 offset_bottom = -0.107
+theme = SubResource("Theme_r70iv")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -220,9 +234,9 @@ script = ExtResource("4_welb4")
 position = Vector2(95, -10)
 
 [node name="Control" parent="Battle" instance=ExtResource("4_wffp2")]
-offset_left = -137.0
+offset_left = -144.0
 offset_top = 50.0
-offset_right = -137.0
+offset_right = -144.0
 offset_bottom = 50.0
 scale = Vector2(0.690682, 0.690682)
 
@@ -233,6 +247,7 @@ offset_top = -172.294
 offset_right = 393.931
 offset_bottom = -141.294
 scale = Vector2(0.8955, 0.8955)
+theme = SubResource("Theme_7ywa5")
 text = "Back"
 
 [node name="SlimeSelect" type="Control" parent="Battle"]
@@ -254,14 +269,17 @@ scale = Vector2(0.412631, 0.412631)
 
 [node name="Slime1" type="Button" parent="Battle/SlimeSelect/HBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_rvyer")
 text = "Slime1"
 
 [node name="Slime2" type="Button" parent="Battle/SlimeSelect/HBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_rvyer")
 text = "Slime2"
 
 [node name="Slime3" type="Button" parent="Battle/SlimeSelect/HBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_rvyer")
 text = "Slime3"
 
 [node name="ElementSelect" type="Control" parent="Battle"]
@@ -283,18 +301,22 @@ scale = Vector2(0.412631, 0.412631)
 
 [node name="Fire" type="Button" parent="Battle/ElementSelect/HBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_ymepg")
 text = "Fire"
 
 [node name="Ice" type="Button" parent="Battle/ElementSelect/HBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_ymepg")
 text = "Ice"
 
 [node name="Thunder" type="Button" parent="Battle/ElementSelect/HBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_ymepg")
 text = "Thunder"
 
 [node name="Earth" type="Button" parent="Battle/ElementSelect/HBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_ymepg")
 text = "Earth"
 
 [node name="CombatFlow" type="Node2D" parent="Battle"]
@@ -319,5 +341,37 @@ offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_cjjkk")
-text = "Human used cleanse"
+text = "Human is ready to fight"
 autowrap_mode = 3
+
+[node name="Run" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-75, -39)
+sprite_frames = SubResource("SpriteFrames_wyhmp")
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://UI/Run.aseprite"
+}
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(0, 21)
+sprite_frames = SubResource("SpriteFrames_wc58f")
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://UI/backgdround.aseprite"
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_ibvj7")

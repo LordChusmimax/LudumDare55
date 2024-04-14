@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://ds3xe1x2txpbj"]
+
+[ext_resource type="Script" path="res://scenes/goblin.gd" id="1_6bebh"]
+[ext_resource type="Texture2D" uid="uid://8lqhuj04fqky" path="res://scenes/Goblin.png" id="1_r6wjm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etr1i"]
+atlas = ExtResource("1_r6wjm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ujdv"]
+atlas = ExtResource("1_r6wjm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8csf"]
+atlas = ExtResource("1_r6wjm")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b4n61"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etr1i")
+}],
+"loop": true,
+"name": &"Iddle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ujdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8csf")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
+}]
+
+[node name="Goblin" type="Node2D"]
+script = ExtResource("1_6bebh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_b4n61")
+animation = &"Iddle"
+autoplay = "Iddle"
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://Entities/Goblin/Goblin.aseprite"
+}

@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Slime
+
 var number: int
 var element: int
 var status: int
@@ -8,7 +10,7 @@ var status: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_active(false)
+	set_active(Status.Inactive)
 	infuse_element(Elements.Base)
 	pass # Replace with function body.
 
@@ -17,9 +19,12 @@ func _ready():
 func _process(delta):
 	pass
 
-func set_active(active):
+func set_active(active: int):
 	status = active
-	visible = active
+	if active == Status.Inactive:
+		visible = false
+	else:
+		visible = true
 
 func infuse_element(new_element: int):
 	element = new_element

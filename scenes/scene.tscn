@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://gvu1dk6s6yta"]
+[gd_scene load_steps=14 format=3 uid="uid://gvu1dk6s6yta"]
 
 [ext_resource type="Script" path="res://scenes/Allies.gd" id="1_3yjtw"]
 [ext_resource type="Texture2D" uid="uid://qdjwwhy8yq0j" path="res://scenes/Player.png" id="1_faokg"]
 [ext_resource type="PackedScene" uid="uid://cmv38p5tq8288" path="res://scenes/slime.tscn" id="2_k1uf6"]
 [ext_resource type="PackedScene" uid="uid://drmklddi2vivn" path="res://scenes/Human.tscn" id="4_lhbkk"]
+[ext_resource type="Script" path="res://scenes/Enemies.gd" id="4_welb4"]
 [ext_resource type="PackedScene" uid="uid://dxyq6nh1xx6hb" path="res://scenes/CombatMenu.tscn" id="4_wffp2"]
+[ext_resource type="Script" path="res://scenes/CombatFlow.gd" id="6_hjk7x"]
+[ext_resource type="Script" path="res://scenes/SlimeSelect.gd" id="7_6ti14"]
+[ext_resource type="Script" path="res://scenes/ElementSelect.gd" id="8_vw4kk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u6ab5"]
 atlas = ExtResource("1_faokg")
@@ -59,15 +63,17 @@ animations = [{
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
-[node name="Combatants" type="Node2D" parent="."]
+[node name="Battle" type="Node" parent="."]
 
-[node name="Allies" type="Node2D" parent="Combatants"]
+[node name="Combatants" type="Node2D" parent="Battle"]
+
+[node name="Allies" type="Node2D" parent="Battle/Combatants"]
 script = ExtResource("1_3yjtw")
 
-[node name="Player" type="Node2D" parent="Combatants/Allies"]
+[node name="Player" type="Node2D" parent="Battle/Combatants/Allies"]
 position = Vector2(-119, 0)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Combatants/Allies/Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Battle/Combatants/Allies/Player"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_lswat")
 animation = &"Idle"
@@ -84,22 +90,95 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://Entities/Player/Player.aseprite"
 }
 
-[node name="Slime" parent="Combatants/Allies" instance=ExtResource("2_k1uf6")]
+[node name="Slime" parent="Battle/Combatants/Allies" instance=ExtResource("2_k1uf6")]
 position = Vector2(-91, 6)
 
-[node name="Slime2" parent="Combatants/Allies" instance=ExtResource("2_k1uf6")]
+[node name="Slime2" parent="Battle/Combatants/Allies" instance=ExtResource("2_k1uf6")]
 position = Vector2(-65, 6)
 
-[node name="Slime3" parent="Combatants/Allies" instance=ExtResource("2_k1uf6")]
+[node name="Slime3" parent="Battle/Combatants/Allies" instance=ExtResource("2_k1uf6")]
 position = Vector2(-39, 6)
 
-[node name="Enemies" type="Node2D" parent="Combatants"]
+[node name="Enemies" type="Node2D" parent="Battle/Combatants"]
+script = ExtResource("4_welb4")
 
-[node name="Human" parent="Combatants/Enemies" instance=ExtResource("4_lhbkk")]
+[node name="Human" parent="Battle/Combatants/Enemies" instance=ExtResource("4_lhbkk")]
 position = Vector2(95, -10)
 
-[node name="Control" parent="." instance=ExtResource("4_wffp2")]
+[node name="Control" parent="Battle" instance=ExtResource("4_wffp2")]
 offset_left = -102.0
 offset_top = 40.0
 offset_right = -102.0
 offset_bottom = 40.0
+
+[node name="back" type="Button" parent="Battle/Control"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = -113.0
+offset_right = 254.0
+offset_bottom = -82.0
+scale = Vector2(0.617513, 0.617513)
+text = "Back"
+
+[node name="SlimeSelect" type="Control" parent="Battle"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_6ti14")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Battle/SlimeSelect"]
+layout_mode = 0
+offset_left = -103.0
+offset_top = -24.0
+offset_right = 85.0
+offset_bottom = 16.0
+scale = Vector2(0.412631, 0.412631)
+
+[node name="Slime1" type="Button" parent="Battle/SlimeSelect/HBoxContainer"]
+layout_mode = 2
+text = "Slime1"
+
+[node name="Slime2" type="Button" parent="Battle/SlimeSelect/HBoxContainer"]
+layout_mode = 2
+text = "Slime2"
+
+[node name="Slime3" type="Button" parent="Battle/SlimeSelect/HBoxContainer"]
+layout_mode = 2
+text = "Slime3"
+
+[node name="ElementSelect" type="Control" parent="Battle"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -4.0
+offset_top = -25.0
+offset_right = 36.0
+offset_bottom = 39.0
+script = ExtResource("8_vw4kk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Battle/ElementSelect"]
+layout_mode = 0
+offset_left = -103.0
+offset_top = -24.0
+offset_right = 85.0
+offset_bottom = 16.0
+scale = Vector2(0.412631, 0.412631)
+
+[node name="Fire" type="Button" parent="Battle/ElementSelect/HBoxContainer"]
+layout_mode = 2
+text = "Fire"
+
+[node name="Ice" type="Button" parent="Battle/ElementSelect/HBoxContainer"]
+layout_mode = 2
+text = "Ice"
+
+[node name="Thunder" type="Button" parent="Battle/ElementSelect/HBoxContainer"]
+layout_mode = 2
+text = "Thunder"
+
+[node name="Earth" type="Button" parent="Battle/ElementSelect/HBoxContainer"]
+layout_mode = 2
+text = "Earth"
+
+[node name="CombatFlow" type="Node2D" parent="Battle"]
+script = ExtResource("6_hjk7x")

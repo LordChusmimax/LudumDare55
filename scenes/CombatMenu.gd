@@ -5,8 +5,10 @@ class_name CombatMenu
 @onready var summon = $HBoxContainer/Summon
 @onready var infuse = $HBoxContainer/Infuse
 @onready var kick = $HBoxContainer/Kick
+@onready var pass_button = $HBoxContainer/Pass
+
 @onready var allies = $"../Combatants/Allies"
-@onready var buttons = [$HBoxContainer/Summon,$HBoxContainer/Infuse,$HBoxContainer/Kick]
+@onready var buttons = [$HBoxContainer/Summon, $HBoxContainer/Infuse, $HBoxContainer/Kick, $HBoxContainer/Pass]
 @onready var slime_select = $"../SlimeSelect"
 @onready var element_select = $"../ElementSelect"
 @onready var combat_flow = $"../CombatFlow"
@@ -27,6 +29,7 @@ func _ready():
 	summon.connect("button_up",_summon)
 	infuse.connect("button_up",_infuse)
 	kick.connect("button_up",_kick)
+	pass_button.connect("button_up",_pass)
 	back.connect("button_up",_back)
 	back.visible = false
 	pass # Replace with function body.
@@ -64,6 +67,9 @@ func _kick():
 	disable_buttons()
 	back.visible = true
 	
+func _pass():
+	combat_flow.set_phase(Phase.Enemy)
+
 func _set_element_menu():
 	slime_select.disable_buttons(true)
 	element_select.disable_buttons(false)
@@ -83,6 +89,7 @@ func foward_infuse():
 			infuse_phase = infuse_phases.None
 			slime_select.change_visibility(false)
 			element_select.change_visibility(false)
+			back.visible = false
 			
 func backward_infuse():
 	if !SlimeSelect.infuse_select:
@@ -114,6 +121,8 @@ func kicked():
 	slime_select.change_visibility(false)
 	element_select.change_visibility(false)
 	
+	back.visible = false
+	
 func back_infuse():
 	pass
 	
@@ -123,3 +132,4 @@ func disable_buttons():
 		
 func enable_buttons():
 	combat_flow.player_turn()
+

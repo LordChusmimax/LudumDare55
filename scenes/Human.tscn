@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://drmklddi2vivn"]
+[gd_scene load_steps=13 format=3 uid="uid://drmklddi2vivn"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_4fa13"]
 [ext_resource type="Texture2D" uid="uid://dhikkkwehcnwx" path="res://scenes/Human.png" id="2_abtgp"]
+[ext_resource type="Script" path="res://scenes/HumanHealthBar.gd" id="3_2y1ya"]
+[ext_resource type="Script" path="res://scenes/Buffs.gd" id="4_ac8h2"]
+[ext_resource type="PackedScene" uid="uid://dcan0pt5csukm" path="res://UI/Buffs/buff.tscn" id="5_p3bya"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1uk34"]
 atlas = ExtResource("2_abtgp")
@@ -49,6 +52,15 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Theme" id="Theme_2btlv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4o2my"]
+bg_color = Color(0.294118, 0.611765, 0, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
 [node name="Human" type="Node2D"]
 script = ExtResource("1_4fa13")
 
@@ -57,7 +69,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_xp51d")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.252703
+frame_progress = 0.771729
 metadata/_aseprite_wizard_config_ = {
 "layer": "",
 "o_ex_p": "",
@@ -67,3 +79,54 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://Entities/Human/Human.aseprite"
 }
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource("3_2y1ya")
+
+[node name="ProgressBar" type="ProgressBar" parent="Health"]
+offset_left = -38.0
+offset_top = 32.0
+offset_right = 111.0
+offset_bottom = 59.0
+scale = Vector2(0.502173, 0.502173)
+theme = SubResource("Theme_2btlv")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4o2my")
+show_percentage = false
+
+[node name="Label" type="Label" parent="Health/ProgressBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.946
+offset_right = 1.0
+offset_bottom = 0.457998
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buffs" type="Node2D" parent="."]
+script = ExtResource("4_ac8h2")
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Buffs"]
+offset_left = -38.0
+offset_top = 46.0
+offset_right = 36.0
+offset_bottom = 62.0
+
+[node name="Ignited" parent="Buffs/HFlowContainer" instance=ExtResource("5_p3bya")]
+layout_mode = 2
+
+[node name="Shocked" parent="Buffs/HFlowContainer" instance=ExtResource("5_p3bya")]
+layout_mode = 2
+
+[node name="Armor" parent="Buffs/HFlowContainer" instance=ExtResource("5_p3bya")]
+layout_mode = 2
+
+[node name="Stunned" parent="Buffs/HFlowContainer" instance=ExtResource("5_p3bya")]
+layout_mode = 2
+
+[node name="Frozen" parent="Buffs/HFlowContainer" instance=ExtResource("5_p3bya")]
+layout_mode = 2
+
+[node name="Poisoned" parent="Buffs/HFlowContainer" instance=ExtResource("5_p3bya")]
+layout_mode = 2

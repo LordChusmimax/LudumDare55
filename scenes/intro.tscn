@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://cblnjxpvli54i"]
+
+[ext_resource type="Texture2D" uid="uid://ceywck30y3w3o" path="res://scenes/Intro.png" id="1_xojpd"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rfkax"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nsuk"]
+atlas = ExtResource("1_xojpd")
+region = Rect2(0, 0, 352, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1fw5x"]
+atlas = ExtResource("1_xojpd")
+region = Rect2(352, 0, 352, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl3lp"]
+atlas = ExtResource("1_xojpd")
+region = Rect2(0, 240, 352, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vdl02"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nsuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1fw5x")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_vl3lp")
+}],
+"loop": false,
+"name": &"Intro",
+"speed": 1.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+rotation = 3.14159
+scale = Vector2(494.759, 494.759)
+texture = SubResource("CanvasTexture_rfkax")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_vdl02")
+animation = &"Intro"
+autoplay = "Intro"
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://Intro/Intro.aseprite"
+}

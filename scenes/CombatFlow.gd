@@ -20,11 +20,13 @@ func _process(delta):
 		_round()
 
 func enemy_turn():
+	control.visible = false
 	enemies.enemy_turn()
 	
 func player_turn():
 	control.visible = true
 	control.disable_buttons()
+	control.pass_button.disabled = false
 	if not allies.only_slimes():
 		control.summon.disabled = false
 	if not allies.no_slimes():
@@ -32,7 +34,8 @@ func player_turn():
 		control.kick.disabled = false
 	
 func slimes_turn():
-	set_phase(Phase.Player)
+	control.visible = false
+	allies.slimes_turn()
 	
 func set_phase(new_phase):
 	waiting = true

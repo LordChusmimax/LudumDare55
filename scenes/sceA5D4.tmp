@@ -1,10 +1,8 @@
-[gd_scene load_steps=25 format=3 uid="uid://gvu1dk6s6yta"]
+[gd_scene load_steps=23 format=3 uid="uid://gvu1dk6s6yta"]
 
 [ext_resource type="Script" path="res://scenes/Allies.gd" id="1_3yjtw"]
-[ext_resource type="PackedScene" uid="uid://cblnjxpvli54i" path="res://scenes/intro.tscn" id="1_avmxn"]
 [ext_resource type="Texture2D" uid="uid://qdjwwhy8yq0j" path="res://scenes/Player.png" id="1_faokg"]
 [ext_resource type="Script" path="res://scenes/Player.gd" id="2_07dkh"]
-[ext_resource type="Script" path="res://scenes/intro.gd" id="2_fd8ce"]
 [ext_resource type="PackedScene" uid="uid://cmv38p5tq8288" path="res://scenes/slime.tscn" id="2_k1uf6"]
 [ext_resource type="Script" path="res://scenes/HealthBar.gd" id="3_ro8mf"]
 [ext_resource type="Script" path="res://scenes/Buffs.gd" id="4_iovtc"]
@@ -120,11 +118,6 @@ default_font_size = 10
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
-
-[node name="Intro" parent="." instance=ExtResource("1_avmxn")]
-z_index = 1
-scale = Vector2(0.670616, 0.670616)
-script = ExtResource("2_fd8ce")
 
 [node name="Battle" type="Node" parent="."]
 
@@ -320,4 +313,3 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_cjjkk")
 text = "Human used cleanse"
-autowrap_mode = 3

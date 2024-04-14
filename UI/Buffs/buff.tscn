@@ -1,0 +1,138 @@
+[gd_scene load_steps=11 format=3 uid="uid://dcan0pt5csukm"]
+
+[ext_resource type="Texture2D" uid="uid://cnbs3vrfdcbf3" path="res://UI/Buffs/Buffs.png" id="1_71jf4"]
+[ext_resource type="Script" path="res://UI/Buffs/buff.gd" id="1_wxcf8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0dov"]
+atlas = ExtResource("1_71jf4")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2834y"]
+atlas = ExtResource("1_71jf4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tttpm"]
+atlas = ExtResource("1_71jf4")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uj2g"]
+atlas = ExtResource("1_71jf4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hyh2"]
+atlas = ExtResource("1_71jf4")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgvl6"]
+atlas = ExtResource("1_71jf4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ntps"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0dov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0dov")
+}],
+"loop": true,
+"name": &"Stunned",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2834y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2834y")
+}],
+"loop": true,
+"name": &"blocked",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tttpm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tttpm")
+}],
+"loop": true,
+"name": &"frozen",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uj2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uj2g")
+}],
+"loop": true,
+"name": &"ignited",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hyh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hyh2")
+}],
+"loop": true,
+"name": &"poisoned",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgvl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgvl6")
+}],
+"loop": true,
+"name": &"shocked",
+"speed": 10.0
+}]
+
+[sub_resource type="Theme" id="Theme_bvu8r"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 3
+anchor_right = 0.007
+anchor_bottom = 0.012
+offset_right = 3.936
+offset_bottom = 4.224
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wxcf8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(6, 6)
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_4ntps")
+animation = &"shocked"
+metadata/_aseprite_wizard_config_ = {
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"slice": "",
+"source": "res://UI/Buffs/Buffs.aseprite"
+}
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 34.0
+offset_bottom = 28.0
+scale = Vector2(0.3, 0.3)
+theme = SubResource("Theme_bvu8r")
+text = "g"
+horizontal_alignment = 2
+vertical_alignment = 1

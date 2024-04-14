@@ -30,3 +30,7 @@ text = "Infuse"
 [node name="Kick" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 text = "Kick"
+
+[node name="Pass" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Pass"
